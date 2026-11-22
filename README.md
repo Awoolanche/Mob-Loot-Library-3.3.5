@@ -14,7 +14,7 @@ Requirements: WoW WoTLK 3.3.5 client, Python 3.
 - Right-click either button, or type /mobloot, to search the library.
 - Drag either button to move it.
  
-    <img width="270" height="280" alt="obraz" src="https://github.com/user-attachments/assets/dc08aba6-9dcc-48df-b7c2-b082ca9dee9f" />
-    <img width="270" height="280" alt="obraz" src="https://github.com/user-attachments/assets/1a4e052e-b123-4119-97ce-1619166e6769" />
-    <img width="270" height="280" alt="obraz" src="https://github.com/user-attachments/assets/d5c30639-fcc5-405b-b553-183e612e3b98" />
+<img width="270" height="280" alt="obraz" src="https://github.com/user-attachments/assets/dc08aba6-9dcc-48df-b7c2-b082ca9dee9f" />
+<img width="270" height="280" alt="obraz" src="https://github.com/user-attachments/assets/1a4e052e-b123-4119-97ce-1619166e6769" />
+<img width="270" height="280" alt="obraz" src="https://github.com/user-attachments/assets/d5c30639-fcc5-405b-b553-183e612e3b98" />
 
