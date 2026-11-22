@@ -1,7 +1,7 @@
 ## Interface: 30300
 ## Title: |cffff8000Mob Loot Library|r 
 ## Notes: Searchable library of creatures, items and crafting recipes: where to find them, what drops, what crafts it. Minimap button.
-## Author: you
+## Author: Awoolanche
 ## Version: 3.0
 ## SavedVariables: MobLootDB
 
