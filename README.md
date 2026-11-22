@@ -4,9 +4,9 @@ A WoW 3.3.5 add-on introducing a searchable library of creatures, items and craf
 ### Installation
 Requirements: WoW WoTLK 3.3.5 client, Python 3.
 
-1. Create a 'MobLoot' folder in in your WoW instance's addon folder, eg. 'World of Warcraft\Interface\AddOns\MobLoot\'.
-2. Put 'MobLoot.toc', 'MobLoot.lua' and 'gen_mobloot_data.py' inside the 'MobLoot' folder.
-3. The add-on is ready to use, but doesn't contain any data yet. Run 'gen_mobloot_data.py' to generate it from AzerothCore repository.
+1. Create a `MobLoot` folder in in your WoW instance's addon folder, eg. `World of Warcraft\Interface\AddOns\MobLoot\`.
+2. Put `MobLoot.toc`, `MobLoot.lua` and `gen_mobloot_data.py` inside the `MobLoot` folder.
+3. The add-on is ready to use, but doesn't contain any data yet. Run `gen_mobloot_data.py` to generate it from AzerothCore repository.
 4. Once the client is launched, the add-on should appear on the add-on list.
 
 ### Usage
