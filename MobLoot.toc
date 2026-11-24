@@ -1,10 +1,36 @@
 ## Interface: 30300
 ## Title: |cffff8000Mob Loot Library|r 
-## Notes: Searchable library of creatures, items and crafting recipes: where to find them, what drops, what crafts it. Minimap button.
+## Notes: Searchable library of creatures, items and crafting recipes: where to find them, what drops, what crafts it.
 ## Author: Awoolanche
-## Version: 3.0
+## Version: 4.0
 ## SavedVariables: MobLootDB
 
 MobLootData.lua
 MobLootInfo.lua
-MobLoot.lua
+
+Core\Init.lua
+Core\Util.lua
+
+Index\ReverseIndex.lua
+Index\Search.lua
+
+Views\Common.lua
+Views\MobView.lua
+Views\ItemView.lua
+Views\RecipeView.lua
+Views\QuestView.lua
+
+Interface\Window.lua
+Interface\List.lua
+Interface\Position.lua
+Interface\Layout.lua
+Interface\ResizeGrip.lua
+Interface\Options.lua
+Interface\MinimapButton.lua
+Interface\PortraitButton.lua
+
+Views\Controller.lua
+
+Core\Learning.lua
+Core\Events.lua
+Core\Slash.lua

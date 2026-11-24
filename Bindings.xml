@@ -1,0 +1,5 @@
+<Bindings>
+    <Binding name="MOBLOOT_TOGGLE" header="MOBLOOT" category="ADDONS">
+        if MobLoot_Toggle then MobLoot_Toggle() end
+    </Binding>
+</Bindings>
