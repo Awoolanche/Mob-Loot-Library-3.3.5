@@ -24,7 +24,24 @@ function ns.Refresh(resetScroll)
     end
     hSub1:SetText(""); hSub2:SetText("")
 
-    if S.view.mode == "search" then
+    if S.curTab == "favs" and S.view.mode == "search" then
+        hTitle:SetText("Favourites")
+        local rows, shown, total = ns.FavRows(S.view.query)
+        S.rowsData = rows
+        if total == 0 then
+            hSub1:SetText("No favourites yet.")
+            S.rowsData = {
+                { header = "Right-click any creature, item, recipe, quest or chest to favourite it," },
+                { header = "or click the star next to the title of its page." },
+            }
+        elseif shown == 0 then
+            hSub1:SetText("No favourites match.")
+            S.rowsData = {}
+        else
+            hSub1:SetText(format("%d favourite%s", shown, shown == 1 and "" or "s"))
+        end
+
+    elseif S.view.mode == "search" then
         hTitle:SetText(({ mobs = "Find a creature", items = "Find an item", recipes = "Find a crafting recipe" })[S.curTab])
         local list, total = RunSearch(S.curTab, S.view.query)
         S.rowsData = {}
@@ -123,6 +140,7 @@ function ns.Refresh(resetScroll)
         scroll:SetVerticalScroll(0)
     end
     S.retry = 0
+    ns.UpdateFavButton()
     ns.UpdateRows()
 end
 

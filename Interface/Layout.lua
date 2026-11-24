@@ -21,8 +21,9 @@ local function Relayout()
         end
     end
     hSub1:SetWidth(w - 42); hSub2:SetWidth(w - 42)
-    search:SetWidth(math.max(SEARCH_MIN_W, math.min(SEARCH_MAX_W, w - 280)))   -- right-anchored; left edge never goes past the tabs (x=234)
-    hTitle:SetWidth(w - 110); hBtn:SetWidth(w - 110)
+    -- right-anchored; its left edge is kept right of the last tab (Favourites ends at x=306)
+    search:SetWidth(math.max(40, math.min(SEARCH_MAX_W, w - 46 - 314)))
+    hTitle:SetWidth(w - 136); hBtn:SetWidth(w - 136)   -- leaves room for the favourite star
     ns.UpdateRows()
 end
 f:SetScript("OnSizeChanged", Relayout)

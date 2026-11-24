@@ -57,7 +57,8 @@ end
 local tabMobs    = MakeTab("Creatures", 18, 78, "mobs")
 local tabItems   = MakeTab("Items", 98, 58, "items")
 local tabRecipes = MakeTab("Recipes", 158, 68, "recipes")
-local TABBTN = { mobs = tabMobs, items = tabItems, recipes = tabRecipes }
+local tabFavs    = MakeTab("Favourites", 228, 78, "favs")
+local TABBTN = { mobs = tabMobs, items = tabItems, recipes = tabRecipes, favs = tabFavs }
 
 -- search box
 local search = CreateFrame("EditBox", "MobLootSearch", f, "InputBoxTemplate")

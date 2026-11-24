@@ -26,6 +26,13 @@ SlashCmdList["MOBLOOT"] = function(msg)
         print("|cff33ff99MobLoot:|r portrait button " .. (MobLootDB.targetBtn.hide and "hidden" or "shown") .. ".")
         return
     end
+    if low == "fav" or low == "favs" or low == "favourites" or low == "favorites" then
+        S.curTab = "favs"; S.stack = {}
+        S.view = { mode = "search", tab = "favs", query = "" }
+        ui.search:SetText("")
+        f:Show(); ns.Refresh(true)
+        return
+    end
     local tab, text = "mobs", msg
     local rest = low:match("^items?%s+(.+)$")
     if rest then

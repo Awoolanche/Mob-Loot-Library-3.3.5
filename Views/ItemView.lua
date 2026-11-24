@@ -68,6 +68,7 @@ local function ItemRows(id)
             local name, area = (MobLoot_Objs[o[i]] or ""):match("^([^|]*)|(.*)$")
             rows[#rows + 1] = {
                 icon = ICON_OBJ, t1 = "|cff99ccff" .. (name or ("Object #" .. o[i])) .. "|r",
+                fav = { kind = "obj", id = o[i] },
                 t2 = (area and area ~= "") and area or "location unknown", r = ChanceText(o[i + 1]),
                 tip = { name or "Object", (area and area ~= "") and ("Location (approx.): " .. area) or nil },
             }

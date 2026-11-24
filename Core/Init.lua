@@ -22,6 +22,7 @@
 --   UI/Options.lua          Interface > AddOns panel
 --   UI/MinimapButton.lua    minimap button
 --   UI/PortraitButton.lua   target portrait button
+--   UI/Favorites.lua        favourites (star toggles, Favourites tab rows)
 --   Views/Controller.lua    Refresh / Navigate / Back / SetTab, timers
 --   Core/Learning.lua       records what you see and loot
 --   Core/Events.lua         event dispatch + saved variable setup
@@ -34,9 +35,9 @@ ns.name = addonName
 ns.C = {
     ROW_H = 32, MAX_ROWS = 30,
     MAX_COLS = 4, COL_MIN_W = 300, COL_GAP = 8,    -- extra columns appear once each column can be >= COL_MIN_W wide
-    SEARCH_MIN_W = 120, SEARCH_MAX_W = 260,        -- w-280 >= 120 at the 400px minimum window width
-    WIN_MIN_W = 400, WIN_MIN_H = 300, WIN_MAX_W = 1400, WIN_MAX_H = 1000,
-    DEF_W = 450, DEF_H = 470,                      -- default window size
+    SEARCH_MIN_W = 120, SEARCH_MAX_W = 260,        -- w-360 >= 120 at the 480px minimum window width
+    WIN_MIN_W = 480, WIN_MIN_H = 300, WIN_MAX_W = 1400, WIN_MAX_H = 1000,
+    DEF_W = 480, DEF_H = 470,                      -- default window size
     SCALE_MIN = 0.5, SCALE_MAX = 1.5,
 }
 
@@ -60,6 +61,8 @@ ns.ICON_BOSS  = "Interface\\Icons\\INV_Misc_Head_Dragon_01"
 ns.ICON_QUEST = "Interface\\Icons\\INV_Misc_Note_01"
 ns.ICON_OBJ   = "Interface\\Icons\\INV_Box_01"
 ns.ICON_UNK   = "Interface\\Icons\\INV_Misc_QuestionMark"
+ns.ICON_STAR  = "Interface\\TargetingFrame\\UI-RaidTargetingIcon_1"   -- favourite star
+ns.FAV_RGB    = { 0.90, 0.78, 1.00 }                                -- tint multiplied onto the yellow star (r, g, b); lower = darker/browner
 
 -- mutable state shared between files (locals cannot cross file boundaries)
 ns.state = {

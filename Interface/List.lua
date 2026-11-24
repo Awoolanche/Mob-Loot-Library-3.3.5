@@ -42,6 +42,7 @@ local function UpdateRows()
                 row.icon:Hide()
                 row.t1:SetText("|cffffd100" .. d.header .. "|r")
                 row.t2:SetText(""); row.r:SetText("")
+                row.star:Hide()
             else
                 if d.item then
                     local _, _, _, _, _, _, _, _, _, tex = GetItemInfo(d.item)
@@ -59,6 +60,8 @@ local function UpdateRows()
                 row.t1:SetText(d.t1 or "")
                 row.t2:SetText(d.t2 or "")
                 row.r:SetText(d.r or "")
+                local fk, fid = ns.RowFav(d)
+                if fk and ns.IsFav(fk, fid) then row.star:Show() else row.star:Hide() end
             end
             row:Show()
         else
@@ -78,6 +81,7 @@ local function MakeRow()
     row.hl:SetTexture("Interface\\QuestFrame\\UI-QuestTitleHighlight")
     row.hl:SetBlendMode("ADD")
     row.hl:Hide()
+    row:RegisterForClicks("LeftButtonUp", "RightButtonUp")
     row.icon = row:CreateTexture(nil, "ARTWORK")
     row.icon:SetSize(26, 26); row.icon:SetPoint("LEFT", 2, 0)
     row.t1 = row:CreateFontString(nil, "OVERLAY", "GameFontNormal")
@@ -89,6 +93,11 @@ local function MakeRow()
     row.r = row:CreateFontString(nil, "OVERLAY", "GameFontHighlightSmall")
     row.r:SetPoint("TOPRIGHT", -2, -3)
     row.r:SetWidth(100); row.r:SetJustifyH("RIGHT")
+    row.star = row:CreateTexture(nil, "OVERLAY")          -- shown on favourites
+    row.star:SetSize(12, 12); row.star:SetPoint("BOTTOMRIGHT", -3, 3)
+    row.star:SetTexture(ns.ICON_STAR)
+    row.star:SetVertexColor(unpack(ns.FAV_RGB))
+    row.star:Hide()
     row:SetScript("OnEnter", function(self)
         local d = self.d
         if not d or d.header then return end
@@ -104,12 +113,25 @@ local function MakeRow()
         else
             GameTooltip:Hide(); return
         end
+        local fk, fid = ns.RowFav(d)
+        if fk then
+            GameTooltip:AddLine(ns.IsFav(fk, fid) and "Right-click: remove from favourites" or "Right-click: add to favourites", 1, 0.82, 0)
+        end
         GameTooltip:Show()
     end)
     row:SetScript("OnLeave", function(self) self.hl:Hide(); GameTooltip:Hide() end)
-    row:SetScript("OnClick", function(self)
+    row:SetScript("OnClick", function(self, button)
         local d = self.d
         if not d then return end
+        if button == "RightButton" then               -- toggle favourite
+            local fk, fid = ns.RowFav(d)
+            if fk then
+                ns.ToggleFav(fk, fid)
+                local onEnter = self:GetScript("OnEnter")
+                if self.d and onEnter then onEnter(self) end
+            end
+            return
+        end
         if IsModifiedClick() and d.item then
             local _, link = GetItemInfo(d.item)
             if link and HandleModifiedItemClick(link) then return end

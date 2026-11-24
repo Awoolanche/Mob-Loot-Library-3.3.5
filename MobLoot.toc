@@ -2,7 +2,7 @@
 ## Title: |cffff8000Mob Loot Library|r 
 ## Notes: Searchable library of creatures, items and crafting recipes: where to find them, what drops, what crafts it.
 ## Author: Awoolanche
-## Version: 4.0
+## Version: 4.1
 ## SavedVariables: MobLootDB
 
 MobLootData.lua
@@ -28,6 +28,7 @@ Interface\ResizeGrip.lua
 Interface\Options.lua
 Interface\MinimapButton.lua
 Interface\PortraitButton.lua
+Interface\Favorites.lua
 
 Views\Controller.lua
 
